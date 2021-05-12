@@ -54,6 +54,11 @@ fi
 
 echo "awsbucket:"
 echo $AWSBUCKET
+echo "species"
+echo $SPECIES
+echo "release"
+echo $RELEASE
+
 
 MAKEPATH=/website-genome-browsers/protein_schematic/bin/make_schematic.pl
 
@@ -75,6 +80,7 @@ UPLOADTOS3PATH=/agr_jbrowse_config/scripts/upload_to_S3.pl
 #  REMOTEPATH="MOD-jbrowses/WormBase/WS$RELEASE/$SPECIES"
 REMOTEPATH="test/WS$RELEASE/protein/$SPECIES"
 
+echo "$UPLOADTOS3PATH --bucket $AWSBUCKET --local $SPECIES --remote $REMOTEPATH --AWSACCESS $AWSACCESS --AWSSECRET $AWSSECRET"
 $UPLOADTOS3PATH --bucket $AWSBUCKET --local $SPECIES --remote $REMOTEPATH --AWSACCESS $AWSACCESS --AWSSECRET $AWSSECRET
  
 
