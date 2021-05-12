@@ -26,7 +26,7 @@ RUN git clone --single-branch --branch protein-281 https://github.com/WormBase/w
 RUN git clone --single-branch --branch master https://github.com/alliance-genome/agr_jbrowse_config.git
 
 RUN cp  /website-jbrowse-protein/single_species_build.sh / && \
-    cp  /website-genome-browsers/protein_schematics/bin/log4perl.conf / && \
+    cp  /website-genome-browsers/protein_schematic/bin/log4perl.conf / && \
     mkdir -p /jbrowse/data/ && \
     cp -r /website-genome-browsers/protein_schematic/jbrowse/data /jbrowse/data
 
