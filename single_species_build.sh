@@ -68,7 +68,9 @@ LOGFILE=$SPECIES
 LOGFILE+=".log"
 
 #this is by far the longest running portion of the script (typically a few hours)
+echo "running build script"
 $MAKEPATH --conf $CONFPATH --quiet --release $RELEASE --species $SPECIES 2>1 | grep -v "Deep recursion"; mv 1 $LOGFILE
+echo "finished running build script"
 
 DATADIR=/jbrowse/data
 
