@@ -52,6 +52,9 @@ then
     fi
 fi
 
+echo "awsbucket:"
+echo $AWSBUCKET
+
 MAKEPATH=/website-genome-browsers/protein_schematic/bin/make_schematic.pl
 
 CONFPATH=/website-genome-browsers/protein_schematic/bin/protein_build.conf
