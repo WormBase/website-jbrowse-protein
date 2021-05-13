@@ -72,7 +72,7 @@ tabix c_elegans.PRJNA13758.WS280.protein_annotation.sorted.gff3.gz
 
 aws s3 cp --acl public-read c_elegans.PRJNA13758.WS280.protein.fa.gz s3://agrjbrowse/test/worm/c_elegans.PRJNA13758.WS280.protein.fa.gz
 aws s3 cp --acl public-read c_elegans.PRJNA13758.WS280.protein.fa.gz.fai s3://agrjbrowse/test/worm/c_elegans.PRJNA13758.WS280.protein.fa.gz.fai
-aws s3 cp --acl public-read c_elegans.PRJNA13758.WS280.protein.fa.gz.gai s3://agrjbrowse/test/worm/c_elegans.PRJNA13758.WS280.protein.fa.gz.gai
+aws s3 cp --acl public-read c_elegans.PRJNA13758.WS280.protein.fa.gz.gzi s3://agrjbrowse/test/worm/c_elegans.PRJNA13758.WS280.protein.fa.gz.gzi
 aws s3 cp --acl public-read c_elegans.PRJNA13758.WS280.protein_annotation.sorted.gff3.gz s3://agrjbrowse/test/c_elegans.PRJNA13758.WS280.protein_annotation.sorted.gff3.gz
 aws s3 cp --acl public-read c_elegans.PRJNA13758.WS280.protein_annotation.sorted.gff3.gz.tbi s3://agrjbrowse/test/c_elegans.PRJNA13758.WS280.protein_annotation.sorted.gff3.gz.tbi
 
