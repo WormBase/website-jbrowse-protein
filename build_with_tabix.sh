@@ -59,7 +59,7 @@ wget  ftp://ftp.wormbase.org/pub/wormbase/releases/WS280/species/c_elegans/PRJNA
 
 gzip -d c_elegans.PRJNA13758.WS280.protein.fa.gz
 bgzip c_elegans.PRJNA13758.WS280.protein.fa
-faidx c_elegans.PRJNA13758.WS280.protein.fa.gz
+samtools faidx c_elegans.PRJNA13758.WS280.protein.fa.gz
 
 wget  ftp://ftp.wormbase.org/pub/wormbase/releases/WS280/species/c_elegans/PRJNA13758/c_elegans.PRJNA13758.WS280.protein_annotation.gff3.gz
 gzip -d c_elegans.PRJNA13758.WS280.protein_annotation.gff3.gz
@@ -70,8 +70,11 @@ bgzip c_elegans.PRJNA13758.WS280.protein_annotation.sorted.gff3
 tabix c_elegans.PRJNA13758.WS280.protein_annotation.sorted.gff3.gz
 
 
-aws s3 cp --acl public-read yeast.tidy.gff.gz s3://agrjbrowse/test/yeast/yeast.tidy.gff.gz
-aws s3 cp --acl public-read yeast.tidy.gff.gz.tbi s3://agrjbrowse/test/yeast.tidy.gff.gz.tbi
+aws s3 cp --acl public-read c_elegans.PRJNA13758.WS280.protein.fa.gz s3://agrjbrowse/test/worm/c_elegans.PRJNA13758.WS280.protein.fa.gz
+aws s3 cp --acl public-read c_elegans.PRJNA13758.WS280.protein.fa.gz.fai s3://agrjbrowse/test/worm/c_elegans.PRJNA13758.WS280.protein.fa.gz.fai
+aws s3 cp --acl public-read c_elegans.PRJNA13758.WS280.protein.fa.gz.gai s3://agrjbrowse/test/worm/c_elegans.PRJNA13758.WS280.protein.fa.gz.gai
+aws s3 cp --acl public-read c_elegans.PRJNA13758.WS280.protein_annotation.sorted.gff3.gz s3://agrjbrowse/test/c_elegans.PRJNA13758.WS280.protein_annotation.sorted.gff3.gz
+aws s3 cp --acl public-read c_elegans.PRJNA13758.WS280.protein_annotation.sorted.gff3.gz.tbi s3://agrjbrowse/test/c_elegans.PRJNA13758.WS280.protein_annotation.sorted.gff3.gz.tbi
 
  
 
