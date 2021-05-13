@@ -69,6 +69,8 @@ gt gff3 -tidy -sortlines -retainids c_elegans.PRJNA13758.WS280.protein_annotatio
 bgzip c_elegans.PRJNA13758.WS280.protein_annotation.sorted.gff3
 tabix c_elegans.PRJNA13758.WS280.protein_annotation.sorted.gff3.gz
 
+export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY}
+export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_KEY}
 
 aws s3 cp --acl public-read c_elegans.PRJNA13758.WS280.protein.fa.gz s3://agrjbrowse/test/worm/c_elegans.PRJNA13758.WS280.protein.fa.gz
 aws s3 cp --acl public-read c_elegans.PRJNA13758.WS280.protein.fa.gz.fai s3://agrjbrowse/test/worm/c_elegans.PRJNA13758.WS280.protein.fa.gz.fai
