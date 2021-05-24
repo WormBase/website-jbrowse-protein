@@ -80,7 +80,7 @@ UPLOADTOS3PATH=/agr_jbrowse_config/scripts/upload_to_S3.pl
 
 # this path will need to be fixed for "real" releases. Something like:
 #  REMOTEPATH="MOD-jbrowses/WormBase/WS$RELEASE/$SPECIES"
-REMOTEPATH="test/WS$RELEASE/protein/$SPECIES"
+REMOTEPATH="MOD-jbrowses/WormBase/WS$RELEASE/protein/$SPECIES"
 
 echo "$UPLOADTOS3PATH --bucket $AWSBUCKET --local $SPECIES --remote $REMOTEPATH --AWSACCESS $AWSACCESS --AWSSECRET $AWSSECRET"
 $UPLOADTOS3PATH --bucket $AWSBUCKET --local $SPECIES --remote $REMOTEPATH --AWSACCESS $AWSACCESS --AWSSECRET $AWSSECRET
