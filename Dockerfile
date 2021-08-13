@@ -22,7 +22,7 @@ LABEL maintainer="scott@scottcain.net"
 
 
 RUN git clone --single-branch --branch main https://github.com/WormBase/website-jbrowse-protein.git
-RUN git clone --single-branch --branch protein-281 https://github.com/WormBase/website-genome-browsers.git
+RUN git clone --single-branch --branch protein-282 https://github.com/WormBase/website-genome-browsers.git
 RUN git clone --single-branch --branch master https://github.com/alliance-genome/agr_jbrowse_config.git
 
 RUN cp  /website-jbrowse-protein/single_species_build.sh / && \
