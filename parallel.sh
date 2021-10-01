@@ -116,7 +116,7 @@ UPLOADTOS3PATH=/agr_jbrowse_config/scripts/upload_to_S3.pl
 REMOTEPATH="MOD-jbrowses/WormBase/WS$RELEASE/protein/$SPECIES"
 
 #echo "$UPLOADTOS3PATH --bucket $AWSBUCKET --local $SPECIES --remote $REMOTEPATH --AWSACCESS $AWSACCESS --AWSSECRET $AWSSECRET"
-parallel -j 2 $UPLOADTOS3PATH --bucket $AWSBUCKET --local {} --remote $REMOTEPATH --AWSACCESS $AWSACCESS --AWSSECRET $AWSSECRET ::: "${SPECIESLIST[@]}"
+parallel -j 2 $UPLOADTOS3PATH --bucket $AWSBUCKET --local {} --remote "MOD-jbrowses/WormBase/WS$RELEASE/protein/"{} --AWSACCESS $AWSACCESS --AWSSECRET $AWSSECRET ::: "${SPECIESLIST[@]}"
  
 
 
