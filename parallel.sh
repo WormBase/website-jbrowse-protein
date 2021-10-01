@@ -102,7 +102,7 @@ CONFPATH=/website-genome-browsers/protein_schematic/bin/protein_build.conf
 
 #this is by far the longest running portion of the script (typically a few hours)
 echo "running build scripts"
-parallel -j 2 $MAKEPATH --conf $CONFPATH --release $RELEASE --species {} ::: $SPECIESLIST
+parallel -j 2 $MAKEPATH --conf $CONFPATH --release $RELEASE --species {} ::: "${SPECIESLIST[@]}" 
 echo "finished running build script"
 
 DATADIR=/jbrowse/data
@@ -116,7 +116,7 @@ UPLOADTOS3PATH=/agr_jbrowse_config/scripts/upload_to_S3.pl
 REMOTEPATH="MOD-jbrowses/WormBase/WS$RELEASE/protein/$SPECIES"
 
 #echo "$UPLOADTOS3PATH --bucket $AWSBUCKET --local $SPECIES --remote $REMOTEPATH --AWSACCESS $AWSACCESS --AWSSECRET $AWSSECRET"
-parallel -j 2 $UPLOADTOS3PATH --bucket $AWSBUCKET --local {} --remote $REMOTEPATH --AWSACCESS $AWSACCESS --AWSSECRET $AWSSECRET ::: $SPECIESLIST
+parallel -j 2 $UPLOADTOS3PATH --bucket $AWSBUCKET --local {} --remote $REMOTEPATH --AWSACCESS $AWSACCESS --AWSSECRET $AWSSECRET ::: "${SPECIESLIST[@]}"
  
 
 
