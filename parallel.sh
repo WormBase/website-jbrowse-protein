@@ -60,37 +60,37 @@ echo "release"
 echo $RELEASE
 
 SPECIESLIST=(
-#'t_muris_PRJEB126'
+'t_muris_PRJEB126'
+'c_elegans_PRJNA13758'
+'p_pacificus_PRJNA12644'
 'c_nigoni_PRJNA384657'
 'b_malayi_PRJNA10729'
 'c_angaria_PRJNA51225'
-#'c_brenneri_PRJNA20035'
-#'c_briggsae_PRJNA10731'
-'c_elegans_PRJNA13758'
+'c_remanei_PRJNA577507'
+'c_brenneri_PRJNA20035'
+'c_briggsae_PRJNA10731'
 'c_elegans_PRJNA275000'
-#'c_japonica_PRJNA12591'
-#'c_remanei_PRJNA53967'
-#'c_sinica_PRJNA194557'
-#'c_tropicalis_PRJNA53597'
-#'o_volvulus_PRJEB513'
-'p_pacificus_PRJNA12644'
-#'p_redivivus_PRJNA186477'
-#'s_ratti_PRJEB125'
-#'c_elegans_PRJEB28388'
-#'c_inopinata_PRJDB5687'
-#'c_latens_PRJNA248912'
-#'o_tipulae_PRJEB15512'
-#'c_remanei_PRJNA577507'
-#'c_becei_PRJEB28243'
+'c_japonica_PRJNA12591'
+'c_remanei_PRJNA53967'
+'c_sinica_PRJNA194557'
+'c_tropicalis_PRJNA53597'
+'o_volvulus_PRJEB513'
+'p_redivivus_PRJNA186477'
+'s_ratti_PRJEB125'
+'c_elegans_PRJEB28388'
+'c_inopinata_PRJDB5687'
+'c_latens_PRJNA248912'
+'o_tipulae_PRJEB15512'
+'c_becei_PRJEB28243'
 'c_bovis_PRJEB34497'
-#'c_panamensis_PRJEB28259'
-#'c_parvicauda_PRJEB12595'
-#'c_quiockensis_PRJEB11354'
-#'c_sulstoni_PRJEB12601'
-#'c_tribulationis_PRJEB12608'
-#'c_uteleia_PRJEB12600'
-#'c_waitukubuli_PRJEB12602'
-#'c_zanzibari_PRJEB12596'
+'c_panamensis_PRJEB28259'
+'c_parvicauda_PRJEB12595'
+'c_quiockensis_PRJEB11354'
+'c_sulstoni_PRJEB12601'
+'c_tribulationis_PRJEB12608'
+'c_uteleia_PRJEB12600'
+'c_waitukubuli_PRJEB12602'
+'c_zanzibari_PRJEB12596'
 )
 
 MAKEPATH=/website-genome-browsers/protein_schematic/bin/make_schematic.pl
@@ -102,7 +102,7 @@ CONFPATH=/website-genome-browsers/protein_schematic/bin/protein_build.conf
 
 #this is by far the longest running portion of the script (typically a few hours)
 echo "running build scripts"
-parallel -j "50%" $MAKEPATH --conf $CONFPATH --release $RELEASE --species {} ::: "${SPECIESLIST[@]}" 
+parallel -j "95%" $MAKEPATH --conf $CONFPATH --release $RELEASE --species {} ::: "${SPECIESLIST[@]}" 
 echo "finished running build script"
 
 DATADIR=/jbrowse/data
@@ -116,7 +116,7 @@ UPLOADTOS3PATH=/agr_jbrowse_config/scripts/upload_to_S3.pl
 # REMOTEPATH="MOD-jbrowses/WormBase/WS$RELEASE/protein/$SPECIES"
 
 #echo "$UPLOADTOS3PATH --bucket $AWSBUCKET --local $SPECIES --remote $REMOTEPATH --AWSACCESS $AWSACCESS --AWSSECRET $AWSSECRET"
-parallel -j "50%" $UPLOADTOS3PATH --bucket $AWSBUCKET --local {} --remote "MOD-jbrowses/WormBase/WS$RELEASE/protein/"{} --AWSACCESS $AWSACCESS --AWSSECRET $AWSSECRET ::: "${SPECIESLIST[@]}"
+parallel -j "95%" $UPLOADTOS3PATH --bucket $AWSBUCKET --local {} --remote "MOD-jbrowses/WormBase/WS$RELEASE/protein/"{} --AWSACCESS $AWSACCESS --AWSSECRET $AWSSECRET ::: "${SPECIESLIST[@]}"
  
 
 
