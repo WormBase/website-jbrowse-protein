@@ -21,11 +21,13 @@ FROM gmod/jbrowse-gff-base:latest
 LABEL maintainer="scott@scottcain.net"
 
 
+#RUN git clone --single-branch --branch main https://github.com/WormBase/website-jbrowse-protein.git
 RUN git clone --single-branch --branch main https://github.com/WormBase/website-jbrowse-protein.git
 RUN git clone --single-branch --branch protein-282 https://github.com/WormBase/website-genome-browsers.git
 RUN git clone --single-branch --branch master https://github.com/alliance-genome/agr_jbrowse_config.git
 
 RUN cp  /website-jbrowse-protein/single_species_build.sh / && \
+    cp  /website-jbrowse-protein/parallel.sh / && \
     cp  /website-genome-browsers/protein_schematic/bin/log4perl.conf / && \
     mkdir -p /jbrowse/data/ && \
     cp -r /website-genome-browsers/protein_schematic/jbrowse/data /jbrowse/data
@@ -34,4 +36,5 @@ RUN cp  /website-jbrowse-protein/single_species_build.sh / && \
 VOLUME /data
 #ENTRYPOINT ["/bin/sh", "/docker-wrapper.sh"]
 
-CMD ["/bin/bash", "/single_species_build.sh"]
+#CMD ["/bin/bash", "/single_species_build.sh"]
+CMD ["/bin/bash", "/parallel.sh"]
