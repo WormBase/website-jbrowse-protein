@@ -12,7 +12,7 @@ Overview
 
 The Dockerfile in this repo codes for a data processing tool that fetches the 
 protein GFF from the WormBase FTP site, processes it into JBrowse NCList json
-format, and deposits the results in the Alliance JBrowse s3 bucket. This processing 
+format, and deposits the results in the Alliance JBrowse S3 bucket. This processing 
 is currently configured to run through the Alliance GoCD system and making use of
 the ridiculously parallelizable nature of processing data from many assemblies. If
 running on a single CPU is desired, the `single_species` branch can be used (it is
@@ -37,6 +37,11 @@ to be made in this repo:
 
 2. The line `RELEASE=282` in `parallel.sh` should be updated the the current release.
 
+Note that both of these items could potentially be parameterized and passed in 
+when running though Ansible using the `$MOD_RELEASE_VERSION` environment variable in
+the agr_ansible_devops WormBase specific environment (https://github.com/alliance-genome/agr_ansible_devops/blob/master/environments/jbrowse/wb.yml), but this hasn't been
+hooked up yet.
+
 When these changes are commited to the main branch, the GoCD system will run the
 `JBrowseSoftwareProcessWBProt` pipeline to build the Dockerfile in this repo, and
 then run the `JBrowseProcessWBProtein` pipeline, which will run a compute machine
@@ -49,6 +54,16 @@ script will upload the JBrowse data to the Alliance JBrowse S3 bucket (agrjbrows
 Building JBrowse servers
 ========================
 
+There are two servers for protein schematic JBrowse instances: 
 
+1. http://jbrowse_wb_protein_dev.alliancegenome.org/tools/protein_schematic/ for development/staging
+2. http://jbrowse_wb_protein_prod.alliancegenome.org/tools/protein_schematic/ for production
+
+Both the development and production servers follow the same build procedure.
+
+1. The GoCD pipeline for building the server container builds automatically when
+there are commits to the branches in website-genome-browsers are commited to. For 
+development/staging, the `protein-schematic-staging` branch is watched, and for 
+production, it watches `protein-schematic-production`.
 
 
