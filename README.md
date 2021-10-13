@@ -25,15 +25,19 @@ Workflow
 ========
 
 When starting a new release, a release specific branch is created from the
-`protein-schematic-staging`, typically called `protein-$RELEASE`. Usually, the only
+`protein-schematic-staging` branch, typically called `protein-$RELEASE`. Usually, the only
 change that needs to be made for a release is to bump the `RELEASE=` number in 
-`/website-genome-browsers/jbrowse/Dockerfile`. Once the release number has be pushed
-into the release specific repo in website-genome-browser, the Dockerfile in this repo
-can be updated to add the release to the line 
+`/website-genome-browsers/protein_schematic/Dockerfile`. Once the release number has
+be pushed into the release specific repo in website-genome-browser, two changes need
+to be made in this repo:
+
+1. The Dockerfile in this repo can be updated to add the release to the line 
 
     RUN git clone --single-branch --branch protein-282 https://github.com/WormBase/website-genome-browsers.git
 
-When this change is commited to the main branch, the GoCD system will run the
+2. The line `RELEASE=282` in `parallel.sh` should be updated the the current release.
+
+When these changes are commited to the main branch, the GoCD system will run the
 `JBrowseSoftwareProcessWBProt` pipeline to build the Dockerfile in this repo, and
 then run the `JBrowseProcessWBProtein` pipeline, which will run a compute machine
 through Ansible to process the WormBase protein GFF files. The script that it runs,
