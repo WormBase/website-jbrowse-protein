@@ -78,7 +78,7 @@ and scripted in some way, it can easily be done with this Perl oneliner:
 ```
 perl -pi -e 's/WormBase\/WS281\/protein/WormBase\/WS282\/protein/' */trackList.json
 ```
-Execute this one liner in `/website-genome-browsers/protein_schematic/jbrowse/data`.
+    Execute this one liner in `/website-genome-browsers/protein_schematic/jbrowse/data`.
 
 4. After these changes are made, push these changes to the `protein-$RELEASE`. At
 this point, local test versions of the server can be created from the Dockerfile.
