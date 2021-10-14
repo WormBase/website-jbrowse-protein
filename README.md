@@ -82,8 +82,8 @@ Execute this one liner in `/website-genome-browsers/protein_schematic/jbrowse/da
 and of course, replace `281` and `282` with the old and new releases of WormBase
 respectively.
 
-4. After these changes are made, push these changes to the `protein-$RELEASE`. At
-this point, local test versions of the server can be created from the Dockerfile.
+4. After these changes are made, push these changes to the `protein-$RELEASE` github
+branch. At this point, local test versions of the server can be created from the Dockerfile.
 
 5. To update the staging server, merge these changes into the `protein_schematic_staging`
 branch which will cause GoCD to rerun the `JBrowseWBProteinDev` pipeline, which rebuilds
