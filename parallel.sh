@@ -46,7 +46,7 @@ if [ -z "$AWSBUCKET" ]
 then
     if [ -z "${AWS_S3_BUCKET}" ]
     then
-        AWSBUCKET=agrjbrowse2
+        AWSBUCKET=agrjbrowse
     else
         AWSBUCKET=${AWS_S3_BUCKET}
     fi
