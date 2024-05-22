@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#set -e
+set -e
 
 RELEASE=292
 while getopts r:s:a:k: option
