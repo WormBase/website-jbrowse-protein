@@ -49,6 +49,11 @@ through Ansible to process the WormBase protein GFF files. The script that it ru
 only the protein fasta file gets processed). After processing the the files, the
 script will upload the JBrowse data to the Alliance JBrowse S3 bucket (agrjbrowse).
 
+IMPORTANT NOTE about GoCD: typically, the `JBrowseSoftwareProcessWBPro` and
+`JBrowseProcessWBProtein` are paused to prevent them from accidentally running when
+updates to this repo are commited. Be sure to unpause them when you want these
+pipelines to run.
+
 # Building JBrowse servers
 
 See the documentation in https://github.com/WormBase/website-genome-browsers/blob/master/README.md
