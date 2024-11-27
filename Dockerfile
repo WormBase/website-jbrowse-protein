@@ -20,7 +20,7 @@ FROM gmod/jbrowse-gff-base:latest
 
 LABEL maintainer="scott@scottcain.net"
 
-ARG RELEASE=294
+ARG RELEASE=295
 
 #RUN git clone --single-branch --branch main https://github.com/WormBase/website-jbrowse-protein.git
 RUN git clone --single-branch --branch main https://github.com/WormBase/website-jbrowse-protein.git
